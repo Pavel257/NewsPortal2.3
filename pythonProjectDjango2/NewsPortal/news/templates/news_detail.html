@@ -1,0 +1,54 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %} News {% endblock title %}
+
+{% block content %}
+
+<table>
+    <tr>
+        <td>
+            <h4><em><span style="color: #008000;">Имя автора</span></em></h4>
+            <hr/>
+        </td>
+        <td>
+            <h4><em><span style="color: #008000;">Рейтинг новости</span></em></h4>
+            <hr/>
+        </td>
+        <td>
+            <h4><em><span style="color: #008000;">Категория</span></em></h4>
+            <hr/>
+        </td>
+        <td>
+            <h4><em><span style="color: #008000;">Статья</span></em></h4>
+            <hr/>
+
+        </td>
+        <td>
+            <h4><em><span style="color: #008000;">Дата публикации</span></em></h4>
+            <hr/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>{{ post.author|title }}</h5>
+        </td>
+        <td>
+            {{ post.rating }}
+        </td>
+        <td>
+            {% for new in post.postCategory.all %}
+            {{ new|title }}
+            {% endfor %}
+        </td>
+        <td>
+            {{ post.text }}
+        </td>
+        <td>
+            {{ post.dateCreation }}
+            <hr/>
+        </td>
+    </tr>
+</table>
+{% endblock content %}
+
+
